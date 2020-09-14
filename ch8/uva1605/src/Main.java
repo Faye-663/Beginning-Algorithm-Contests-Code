@@ -4,12 +4,17 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
+/**
+ * 一共只有两层，每层都是n*n的，第一层第i行全是国家i，第 二层第j列全是国家j
+ * AAA
+ * BBB
+ * CCC
+ * 
+ * ABC
+ * ABC
+ * ABC
+ */
 public class Main {
-
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
