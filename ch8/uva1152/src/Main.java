@@ -13,7 +13,7 @@ public class Main {
 		while (left < right) {
 			int m = left + (right - left) / 2;
 			if (nums[m] == v) {
-				// ÕÒµ½£¬ÔÙµÃµ½×ó±ß½çºÍÓÒ±ß½ç,·µ»ØÕÒµ½µÄ¸öÊý
+				// æ‰¾åˆ°ï¼Œå†å¾—åˆ°å·¦è¾¹ç•Œå’Œå³è¾¹ç•Œ,è¿”å›žæ‰¾åˆ°çš„ä¸ªæ•°
 				int low = lowerBound(nums, left, right, v);
 				int upper = upperBound(nums, left, right, v);
 				return upper - low + 1;
@@ -84,14 +84,14 @@ public class Main {
 				d[i] = Integer.parseInt(strs[3]);
 			}
 
-			// µÃµ½a+b
+			// å¾—åˆ°a+b
 			int index = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					left[index++] = a[i] + b[j];
 				}
 			}
-			// µÃµ½-c-d
+			// å¾—åˆ°-c-d
 			index = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
@@ -99,11 +99,11 @@ public class Main {
 				}
 			}
 
-			// ÅÅÐò
+			// æŽ’åº
 			Arrays.sort(left);
 			Arrays.sort(right);
 
-			// ÔÚrightÖÐ¶þ·Ö²éÕÒleftÖÐµÄÔªËØ
+			// åœ¨rightä¸­äºŒåˆ†æŸ¥æ‰¾leftä¸­çš„å…ƒç´ 
 			int sum = 0;
 			for (int i = 0; i < n * n; i++) {
 				sum += baseSearch(right, 0, n * n, left[i]);

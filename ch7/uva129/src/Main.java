@@ -3,22 +3,22 @@ import java.util.Scanner;
 public class Main {
 
 	static int l;
-	// ¼ÆÊıÆ÷
+	// è®¡æ•°å™¨
 	static int tot;
-	// ÊÇ·ñ¼ÆÊıÆ÷Íê³É
+	// æ˜¯å¦è®¡æ•°å™¨å®Œæˆ
 	static boolean flag;
 
 	private static void f(int n, int[] a, int cur) {
 		if (tot == n) {
-			// ËÄÎ»¼ÆÊıÆ÷
+			// å››ä½è®¡æ•°å™¨
 			int temp = 1;
-			// »»ĞĞ¼ÆÊıÆ÷
+			// æ¢è¡Œè®¡æ•°å™¨
 			int num = 1;
 
 			for (int i = 0; i < cur; i++) {
-				// ÊÇ·ñ´òÓ¡¿Õ¸ñ
+				// æ˜¯å¦æ‰“å°ç©ºæ ¼
 				if (temp == 5) {
-					// ÊÇ·ñ»»ĞĞ
+					// æ˜¯å¦æ¢è¡Œ
 					if (++num == 17) {
 						System.out.println();
 						System.out.print((char) a[i]);
@@ -36,13 +36,13 @@ public class Main {
 			System.out.println();
 			System.out.println(cur);
 
-			// ¼ÆÊıÆ÷Íê³É£¬ÎŞĞë¼ÌĞøËÑË÷
+			// è®¡æ•°å™¨å®Œæˆï¼Œæ— é¡»ç»§ç»­æœç´¢
 			flag = true;
 			return;
 		}
 
 		for (int i = 65; i < 65 + l; i++) {
-			// Íê³ÉËÑË÷£¬Ö±½ÓÍË³ö
+			// å®Œæˆæœç´¢ï¼Œç›´æ¥é€€å‡º
 			if (flag) {
 				return;
 			}
@@ -55,24 +55,24 @@ public class Main {
 		}
 	}
 
-	//¶ÔÓÚºó×ºi£¬ÈÎÒ»Î»²»µÈ£¬¼´¸Ãºó×ºi²»µÈ
-	//¶ÔÓÚ¸Ã´®£¬ÈÎÒ»¸öºó×ºiÏàµÈ£¬¼´¸Ã´®easy
+	//å¯¹äºåç¼€iï¼Œä»»ä¸€ä½ä¸ç­‰ï¼Œå³è¯¥åç¼€iä¸ç­‰
+	//å¯¹äºè¯¥ä¸²ï¼Œä»»ä¸€ä¸ªåç¼€iç›¸ç­‰ï¼Œå³è¯¥ä¸²easy
 	private static boolean isHard(int[] a, int cur) {
-		// ÊÇ·ñÎªhard±êÖ¾
+		// æ˜¯å¦ä¸ºhardæ ‡å¿—
 		boolean ok = true;
-		// ³¢ÊÔ³¤¶ÈÎª2*iµÄºó×º
+		// å°è¯•é•¿åº¦ä¸º2*içš„åç¼€
 		for (int i = 1; 2 * i <= cur + 1; i++) {
-			// ³¤¶ÈiµÄºó×ºÊÇ·ñÂú×ã
+			// é•¿åº¦içš„åç¼€æ˜¯å¦æ»¡è¶³
 			boolean equal = true;
-			// ±éÀúºó×ºi
+			// éå†åç¼€i
 			for (int j = 0; j < i; j++) {
-				// ÈÎÒ»Î»²»µÈ£¬¼´¿Ébreak£¬½øĞĞÏÂÒ»¸öºó×ºi
+				// ä»»ä¸€ä½ä¸ç­‰ï¼Œå³å¯breakï¼Œè¿›è¡Œä¸‹ä¸€ä¸ªåç¼€i
 				if (a[cur - j] != a[cur - j - i]) {
 					equal = false;
 					break;
 				}
 			}
-			// ÈÎÒ»¸öºó×ºiÏàµÈ£¬¼´²»Îªhard
+			// ä»»ä¸€ä¸ªåç¼€iç›¸ç­‰ï¼Œå³ä¸ä¸ºhard
 			if (equal) {
 				ok = false;
 				break;

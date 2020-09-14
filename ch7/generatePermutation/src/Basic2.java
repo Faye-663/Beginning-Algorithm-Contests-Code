@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Basic2 {
 
 	static int[] p;
-	static int[] vis;   //ÅĞ¶ÏiÊÇ·ñÒÑÓÃ
+	static int[] vis;   //åˆ¤æ–­iæ˜¯å¦å·²ç”¨
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -24,29 +24,29 @@ public class Basic2 {
 	/**
 	 * 
 	 * @param n
-	 *            nµÄÖµ
+	 *            nçš„å€¼
 	 * @param result
-	 *            ÒÑ¾­È·¶¨µÄ¡°Ç°×º¡±ĞòÁĞ
+	 *            å·²ç»ç¡®å®šçš„â€œå‰ç¼€â€åºåˆ—
 	 * @param cur
-	 *            µ±Ç°ĞèÒªÈ·¶¨µÄÔªËØÎ»ÖÃ
+	 *            å½“å‰éœ€è¦ç¡®å®šçš„å…ƒç´ ä½ç½®
 	 */
 	private static void print_permutation(int n, int[] result, int cur) {
-		// µİ¹é±ß½ç,µİ¹é³ö¿Ú
+		// é€’å½’è¾¹ç•Œ,é€’å½’å‡ºå£
 		if (cur == n) {
 			for (int i = 0; i < n; i++) {
 				System.out.print(result[i] + " ");
 			}
 			System.out.println();
 		} else {
-			// ³¢ÊÔÔÚresult[j]ÖĞÌîÈë¸÷ÖÖÕûÊıi(1~n)
+			// å°è¯•åœ¨result[j]ä¸­å¡«å…¥å„ç§æ•´æ•°i(1~n)
 			for (int i = 1; i <= n; i++) {
 				if (vis[i] == 0) {
 					result[cur] = i;
 					
-					//ÉèÖÃÊ¹ÓÃ±êÖ¾
+					//è®¾ç½®ä½¿ç”¨æ ‡å¿—
 					vis[i] =i;
 					print_permutation(n, result, cur + 1);
-					//Çå³ı±êÖ¾
+					//æ¸…é™¤æ ‡å¿—
 					vis[i] = 0;
 				}
 			}

@@ -5,7 +5,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
 /**
- * 一共只有两层，每层都是n*n的，第一层第i行全是国家i，第 二层第j列全是国家j
+ * 涓�鍏卞彧鏈変袱灞傦紝姣忓眰閮芥槸n*n鐨勶紝绗竴灞傜i琛屽叏鏄浗瀹秈锛岀 浜屽眰绗琷鍒楀叏鏄浗瀹秊
  * AAA
  * BBB
  * CCC

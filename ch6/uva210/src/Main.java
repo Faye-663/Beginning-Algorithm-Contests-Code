@@ -11,17 +11,17 @@ public class Main {
 	private static ArrayDeque<Integer> wait;
 	private static Queue<Integer> stop;
 	private static boolean isLock;
-	// ´æ±äÁ¿
+	// å­˜å˜é‡
 	private static HashMap<String, Integer> map;
 
 	private static void run(ArrayList<String> strs, int[] indexs) {
 		int endNo = 0;
 		while (endNo < n) {
-			// ÅĞ¶ÏÊÇ·ñ¶Áµ½end
+			// åˆ¤æ–­æ˜¯å¦è¯»åˆ°end
 			boolean isEnd = false;
-			// È¡µÈ´ı¶ÓÁĞ¶ÓÊ×µÄ³ÌĞò
+			// å–ç­‰å¾…é˜Ÿåˆ—é˜Ÿé¦–çš„ç¨‹åº
 			int temp = wait.poll();
-			// È¡¸Ã³ÌĞòÔÚÈÎÎñÊı×éµÄË÷Òı
+			// å–è¯¥ç¨‹åºåœ¨ä»»åŠ¡æ•°ç»„çš„ç´¢å¼•
 			int index = indexs[temp];
 			for (int i = Q; i > 0;) {
 				String s = strs.get(index++);
@@ -40,7 +40,7 @@ public class Main {
 								+ map.get(strings[1]));
 					}
 				} else if ("lock".equals(s)) {
-					// ÈôÒÑËø£¬Ôò½«µ±Ç°³ÌĞò¼ÓÈëstop£¬index--,ÔÙÖ±½Óbreak£¬Î´ÓÃÅä¶îÀË·Ñ
+					// è‹¥å·²é”ï¼Œåˆ™å°†å½“å‰ç¨‹åºåŠ å…¥stopï¼Œindex--,å†ç›´æ¥breakï¼Œæœªç”¨é…é¢æµªè´¹
 					if (!isLock) {
 						time = t3;
 						isLock = true;
@@ -51,14 +51,14 @@ public class Main {
 					}
 				} else if ("unlock".equals(s)) {
 					time = t4;
-					// ·ÀÖ¹×îºóÒ»¸ö³ÌĞòÈ¡µ½null
+					// é˜²æ­¢æœ€åä¸€ä¸ªç¨‹åºå–åˆ°null
 					if (stop.peek() != null) {
 						wait.addFirst(stop.poll());
 					}
-					// ½âËø
+					// è§£é”
 					isLock = false;
 				} else {
-					// ¶Áµ½end£¬Ö±½Óbreak£¬Î´ÓÃÅä¶îÀË·Ñ
+					// è¯»åˆ°endï¼Œç›´æ¥breakï¼Œæœªç”¨é…é¢æµªè´¹
 					endNo++;
 					isEnd = true;
 					index--;
@@ -66,9 +66,9 @@ public class Main {
 				}
 				i -= time;
 			}
-			// ¸üĞÂµ±Ç°³ÌĞòË÷Òı
+			// æ›´æ–°å½“å‰ç¨‹åºç´¢å¼•
 			indexs[temp] = index;
-			// ÈôÎ´¶Áµ½lockºÍendÔò£¬¼ÓÈëwait
+			// è‹¥æœªè¯»åˆ°lockå’Œendåˆ™ï¼ŒåŠ å…¥wait
 			if (!stop.contains(temp) && !isEnd) {
 				wait.add(temp);
 			}
@@ -81,7 +81,7 @@ public class Main {
 		in.nextLine();
 
 		while (num > 0) {
-			// ¶ÁÈë
+			// è¯»å…¥
 			in.nextLine();
 			n = in.nextInt();
 			t1 = in.nextInt();
@@ -91,7 +91,7 @@ public class Main {
 			t5 = in.nextInt();
 			Q = in.nextInt();
 			in.nextLine();
-			// ³õÊ¼»¯ ÈÎÎñÊı×é¡¢Ë÷ÒıÊı×é£¨´æ¸÷³ÌĞòÔÚÈÎÎñÊı×éµÄË÷Òı£©¡¢µÈ´ı¶ÓÁĞ¡¢×èÖ¹¶ÓÁĞ¡¢isLock¡¢map
+			// åˆå§‹åŒ– ä»»åŠ¡æ•°ç»„ã€ç´¢å¼•æ•°ç»„ï¼ˆå­˜å„ç¨‹åºåœ¨ä»»åŠ¡æ•°ç»„çš„ç´¢å¼•ï¼‰ã€ç­‰å¾…é˜Ÿåˆ—ã€é˜»æ­¢é˜Ÿåˆ—ã€isLockã€map
 			ArrayList<String> strs = new ArrayList<String>();
 			int[] indexs = new int[n + 1];
 			wait = new ArrayDeque(n);
@@ -101,7 +101,7 @@ public class Main {
 			stop = new LinkedList<Integer>();
 			isLock = false;
 			map = new HashMap<String, Integer>();
-			// ¶ÁÈë£¬Ğ´ÈëÈÎÎñÊı×é
+			// è¯»å…¥ï¼Œå†™å…¥ä»»åŠ¡æ•°ç»„
 			int endNo = 0;
 			while (endNo < n) {
 				String line = in.nextLine();

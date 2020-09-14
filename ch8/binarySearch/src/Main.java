@@ -5,11 +5,11 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
 /**
- * ¶ş·Ö²éÕÒ£¬²éÕÒ·¶Î§
+ * äºŒåˆ†æŸ¥æ‰¾ï¼ŒæŸ¥æ‰¾èŒƒå›´
  * 
- * ÓÃĞÄÌå»á×ó±ÕÓÒ¿ªÇø¼äµÄÊ¹ÓÃ·½·¨ºÍÉÏÏÂ½çº¯ÊıµÄÊµÏÖÏ¸½Ú¡£ [left,right)
+ * ç”¨å¿ƒä½“ä¼šå·¦é—­å³å¼€åŒºé—´çš„ä½¿ç”¨æ–¹æ³•å’Œä¸Šä¸‹ç•Œå‡½æ•°çš„å®ç°ç»†èŠ‚ã€‚ [left,right)
  * 
- * ÓÃleft + (right - left) / 2À´È·±£·Ö½çµã×ÜÊÇ¿¿½üÇø¼äÆğµã¡£
+ * ç”¨left + (right - left) / 2æ¥ç¡®ä¿åˆ†ç•Œç‚¹æ€»æ˜¯é è¿‘åŒºé—´èµ·ç‚¹ã€‚
  * 
  */
 public class Main {
@@ -31,7 +31,7 @@ public class Main {
 		return -1;
 	}
 
-	// µ±v´æÔÚÊ±·µ»ØËü³öÏÖµÄµÚÒ»¸öÎ»ÖÃ¡£Èç¹û²»´æÔÚ£¬·µ»ØÕâÑùÒ»¸öÏÂ±êi£ºÔÚ´Ë´¦²åÈëvºóĞòÁĞÈÔÈ»ÓĞĞò¡£
+	// å½“vå­˜åœ¨æ—¶è¿”å›å®ƒå‡ºç°çš„ç¬¬ä¸€ä¸ªä½ç½®ã€‚å¦‚æœä¸å­˜åœ¨ï¼Œè¿”å›è¿™æ ·ä¸€ä¸ªä¸‹æ ‡iï¼šåœ¨æ­¤å¤„æ’å…¥vååºåˆ—ä»ç„¶æœ‰åºã€‚
 	private static int lowerBound(int[] nums, int left, int right, int v) {
 		while (left < right) {
 			int m = left + (right - left) / 2;
@@ -44,7 +44,7 @@ public class Main {
 		return left;
 	}
 
-	// µ±v´æÔÚÊ±·µ»ØËü³öÏÖµÄ×îºóÒ»¸öÎ»ÖÃ,Èç¹û²»´æÔÚ£¬·µ»ØÕâÑùÒ»¸öÏÂ±êi£ºÔÚ´Ë´¦²åÈëvºóĞòÁĞÈÔÈ»ÓĞĞò¡£
+	// å½“vå­˜åœ¨æ—¶è¿”å›å®ƒå‡ºç°çš„æœ€åä¸€ä¸ªä½ç½®,å¦‚æœä¸å­˜åœ¨ï¼Œè¿”å›è¿™æ ·ä¸€ä¸ªä¸‹æ ‡iï¼šåœ¨æ­¤å¤„æ’å…¥vååºåˆ—ä»ç„¶æœ‰åºã€‚
 	private static int upperBound(int[] nums, int left, int right, int v) {
 		boolean flag = false;
 		while (left < right) {
@@ -73,7 +73,7 @@ public class Main {
 
 		String s;
 		while ((s = in.readLine()) != null) {
-			// ´¦ÀíÊäÈë
+			// å¤„ç†è¾“å…¥
 			String[] strs = s.split(" ");
 			int n = strs.length;
 			nums = new int[n];

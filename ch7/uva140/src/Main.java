@@ -10,51 +10,51 @@ import java.util.HashSet;
 
 public class Main {
 
-	// ´æ´¢ÊäÈëµÄÍ¼µÄĞÅÏ¢
+	// å­˜å‚¨è¾“å…¥çš„å›¾çš„ä¿¡æ¯
 	static int[][] nums;
 	static int[] vis;
-	// ´æ´¢½áµãÔÚÅÅÁĞÖĞµÄË÷Òı
+	// å­˜å‚¨ç»“ç‚¹åœ¨æ’åˆ—ä¸­çš„ç´¢å¼•
 	static int[] letters;
-	// ´æ´¢ÅÅÁĞ
+	// å­˜å‚¨æ’åˆ—
 	static int[] text;
-	// µ±Ç°×îĞ¡´ø¿íÅÅÁĞ
+	// å½“å‰æœ€å°å¸¦å®½æ’åˆ—
 	static int[] ans;
-	// ¸÷½áµãµÄ×ÖÄ¸
+	// å„ç»“ç‚¹çš„å­—æ¯
 	static int[] set1;
-	// µ±Ç°×îĞ¡´ø¿í
+	// å½“å‰æœ€å°å¸¦å®½
 	static int curbd;
 
 	private static void f(int n, int[] letters, int cur, int[] text, int[] set1) {
 		if (n == cur) {
-			// ¸ÃÅÅÁĞµÄ×îĞ¡´ø¿í
+			// è¯¥æ’åˆ—çš„æœ€å°å¸¦å®½
 			int thisbd = 0;
-			// ¼ôÖ¦±êÖ¾
+			// å‰ªææ ‡å¿—
 			boolean flag = true;
 			for (int i = 0; i < 8; i++) {
-				// ±éÀú½áµã½áÊø
+				// éå†ç»“ç‚¹ç»“æŸ
 				if (nums[i][0] == 0) {
 					break;
 				}
-				// ÀíÏëÇé¿ö>min£¬¼ôÖ¦
+				// ç†æƒ³æƒ…å†µ>minï¼Œå‰ªæ
 				if (curbd <= (nums[i][1] + 1) / 2) {
 					thisbd = 9;
 					break;
 				}
-				// ¸Ã½áµãÔÚ¸ÃÅÅÁĞµÄË÷Òı
+				// è¯¥ç»“ç‚¹åœ¨è¯¥æ’åˆ—çš„ç´¢å¼•
 				int first = nums[i][0] - 65;
 				int index1 = letters[first];
 
 				for (int j = 2; j < 9; j++) {
-					// ½áÊø¸Ã½áµãÏàÁÚ½áµãµÄ±éÀú
+					// ç»“æŸè¯¥ç»“ç‚¹ç›¸é‚»ç»“ç‚¹çš„éå†
 					if (nums[i][j] == 0) {
 						break;
 					}
-					// ¸ÃÏàÁÚ½áµãµÄË÷Òı
+					// è¯¥ç›¸é‚»ç»“ç‚¹çš„ç´¢å¼•
 					int last = nums[i][j] - 65;
 					int index2 = letters[last];
-					// ´ø¿í
+					// å¸¦å®½
 					int bd = Math.abs(index1 - index2);
-					// ³öÏÖ´ø¿í>min£¬Ôò¼ôÖ¦
+					// å‡ºç°å¸¦å®½>minï¼Œåˆ™å‰ªæ
 					if (curbd < bd) {
 						thisbd = 9;
 						flag = false;
@@ -69,14 +69,14 @@ public class Main {
 			}
 			if (curbd > thisbd) {
 				curbd = thisbd;
-				// ÉèÖÃÅÅÁĞ
+				// è®¾ç½®æ’åˆ—
 				ans = Arrays.copyOf(text, n);
 			}
-		// Éú³ÉÈ«ÅÅÁĞ
+		// ç”Ÿæˆå…¨æ’åˆ—
 		} else
 			for (int i = 0; i < n; i++) {
 				if (vis[i] == 0) {
-					// ÉèÖÃ½áµãÔÚÅÅÁĞÖĞµÄË÷Òı
+					// è®¾ç½®ç»“ç‚¹åœ¨æ’åˆ—ä¸­çš„ç´¢å¼•
 					letters[set1[i] - 65] = cur;
 					text[cur] = set1[i];
 					vis[i] = 1;
@@ -91,7 +91,7 @@ public class Main {
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 		String line;
 		while ((line = in.readLine()) != null) {
-			// ³õÊ¼»¯
+			// åˆå§‹åŒ–
 			HashSet<Character> set = new HashSet();
 			nums = new int[10][10];
 			ArrayList<Integer> set2 = new ArrayList();
@@ -101,11 +101,11 @@ public class Main {
 				break;
 			}
 
-			// ´¦ÀíÊäÈë
+			// å¤„ç†è¾“å…¥
 			String[] temp = line.split(";");
 			for (int i = 0; i < temp.length; i++) {
 				String s = temp[i];
-				// ¸÷½áµãÏàÁÚ½áµãµÄ¸öÊı+1
+				// å„ç»“ç‚¹ç›¸é‚»ç»“ç‚¹çš„ä¸ªæ•°+1
 				int num1 = 0;
 				for (int j = 0; j < s.length(); j++) {
 					if (j == 1) {
@@ -115,30 +115,30 @@ public class Main {
 					num1++;
 					char c = s.charAt(j);
 					if (!set.contains(c)) {
-						// »ñÈ¡¸÷½áµãµÄ×ÖÄ¸
+						// è·å–å„ç»“ç‚¹çš„å­—æ¯
 						set2.add((int) c);
 					}
-					// »ñÈ¡½áµã¸öÊı
+					// è·å–ç»“ç‚¹ä¸ªæ•°
 					set.add(s.charAt(j));
 				}
-				// ¸÷½áµãÏàÁÚ½áµãµÄ¸öÊı
+				// å„ç»“ç‚¹ç›¸é‚»ç»“ç‚¹çš„ä¸ªæ•°
 				nums[i][1] = num1 - 1;
 			}
 
 			int n = set.size();
 			set1 = new int[n + 5];
-			// ÅÅĞò£¬ÒÔ±ã°´×ÖµäĞòÊä³ö
+			// æ’åºï¼Œä»¥ä¾¿æŒ‰å­—å…¸åºè¾“å‡º
 			Collections.sort(set2);
 			for (int i = 0; i < n; i++) {
 				set1[i] = set2.get(i);
 			}
-			// ³õÊ¼»¯
+			// åˆå§‹åŒ–
 			text = new int[n + 5];
 			ans = new int[n + 5];
 			vis = new int[n + 5];
 			curbd = 10;
 			f(n, letters, 0, text, set1);
-			// Êä³ö
+			// è¾“å‡º
 			for (int i = 0; i < n; i++) {
 				out.print((char) ans[i] + " ");
 			}

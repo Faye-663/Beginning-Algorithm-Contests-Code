@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * 
- * ÊäÈëÊı×éP£¬²¢°´×ÖµäĞòÊä³öÊı×éA¸÷ÔªËØµÄËùÓĞÈ«ÅÅÁĞ
+ * è¾“å…¥æ•°ç»„Pï¼Œå¹¶æŒ‰å­—å…¸åºè¾“å‡ºæ•°ç»„Aå„å…ƒç´ çš„æ‰€æœ‰å…¨æ’åˆ—
  * 
  */
 
@@ -25,7 +25,7 @@ public class Repeatable {
 				p[i] = Integer.parseInt(strs[i]);
 			}
 
-			// ¶ÔpÅÅĞò
+			// å¯¹pæ’åº
 			Arrays.sort(p);
 			print_permutation(p.length, p, a, 0);
 
@@ -35,27 +35,27 @@ public class Repeatable {
 	/**
 	 * 
 	 * @param n
-	 *            pµÄ³¤¶È
+	 *            pçš„é•¿åº¦
 	 * @param p
-	 *            pÊı×é
+	 *            pæ•°ç»„
 	 * @param result
-	 *            ÒÑ¾­È·¶¨µÄ¡°Ç°×º¡±ĞòÁĞ
+	 *            å·²ç»ç¡®å®šçš„â€œå‰ç¼€â€åºåˆ—
 	 * @param cur
-	 *            µ±Ç°ĞèÒªÈ·¶¨µÄÔªËØÎ»ÖÃ
+	 *            å½“å‰éœ€è¦ç¡®å®šçš„å…ƒç´ ä½ç½®
 	 */
 	private static void print_permutation(int n, int[] p, int[] result, int cur) {
-		// µİ¹é±ß½ç,µİ¹é³ö¿Ú
+		// é€’å½’è¾¹ç•Œ,é€’å½’å‡ºå£
 		if (cur == n) {
 			for (int i = 0; i < n; i++) {
 				System.out.print(result[i] + " ");
 			}
 			System.out.println();
 		} else {
-			//ÔÚresultÖĞÌîÈëpÊı×éÖĞµÄÊı
-			//È·±£P[i]ºÍÖ®Ç°ÈÎÒ»ÔªËØ²»ÏàÍ¬
+			//åœ¨resultä¸­å¡«å…¥pæ•°ç»„ä¸­çš„æ•°
+			//ç¡®ä¿P[i]å’Œä¹‹å‰ä»»ä¸€å…ƒç´ ä¸ç›¸åŒ
 			for (int i = 0; i < n && (i == 0 || p[i] != p[i - 1]); i++) {
-				//cp£ºpÖĞÖµÎªp[i]µÄ¸öÊı
-				//cp£ºaÖĞÖµÎªp[i]µÄ¸öÊı
+				//cpï¼špä¸­å€¼ä¸ºp[i]çš„ä¸ªæ•°
+				//cpï¼šaä¸­å€¼ä¸ºp[i]çš„ä¸ªæ•°
 				int cp = 0;
 				int ca = 0;
 

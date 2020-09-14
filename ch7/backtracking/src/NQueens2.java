@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 /**
- * ���ö�ά����vis[3][ ]ֱ���жϵ�ǰ���ԵĻʺ����ڵ��к������Խ����Ƿ����������ʺ�.
- * ע�⵽���Խ��߱�ʶy-x�� ��Ϊ������ȡʱҪ����n.
+ * 利用二维数组vis[3][ ]直接判断当前尝试的皇后所在的列和两个对角线是否已有其他皇后.
+ * 注意到主对角线标识y-x可 能为负，存取时要加上n.
  *
  */
 public class NQueens2 {
@@ -16,14 +16,14 @@ public class NQueens2 {
 			tot++;
 		}else for(int i =0;i<n;i++){
 			if(vis[0][i]==0&&vis[1][cur-i+n]==0&&vis[2][cur+i]==0){
-				//������ô�ӡ�⣬����C���鶼����ʡ��
+				//如果不用打印解，整个C数组都可以省略
 				//c[cur] = i;
 				
-				//�޸�ȫ�ֱ���
+				//修改全局变量
 				vis[0][i] = vis[1][cur-i+n] = vis[2][cur+i] = 1;
 				f(n,cur+1);
 				
-				//�мǣ�һ��Ҫ�Ļ���
+				//切记！一定要改回来
 				vis[0][i] = vis[1][cur-i+n] = vis[2][cur+i] = 0;
 			}
 		}

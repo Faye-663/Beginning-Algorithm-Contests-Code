@@ -6,13 +6,13 @@ import java.io.PrintWriter;
 
 public class Main {
 
-	//´æ´¢ÊäÈëµÄtext£¬Êı¾İÓò
+	//å­˜å‚¨è¾“å…¥çš„textï¼Œæ•°æ®åŸŸ
 	static char[] text = new char[100005];
-	//´æ´¢Ö¸Õë£¬Ö¸ÕëÓò£¬next[i] = text[i]µÄÏÂÒ»¸ö×Ö·ûµÄÎ»ÖÃ£¬next[0] = µÚÒ»¸ö×Ö·ûµÄÎ»ÖÃ
+	//å­˜å‚¨æŒ‡é’ˆï¼ŒæŒ‡é’ˆåŸŸï¼Œnext[i] = text[i]çš„ä¸‹ä¸€ä¸ªå­—ç¬¦çš„ä½ç½®ï¼Œnext[0] = ç¬¬ä¸€ä¸ªå­—ç¬¦çš„ä½ç½®
 	static int[] next = new int[100005];
-	//¹â±êµ±Ç°Î»ÖÃ
+	//å…‰æ ‡å½“å‰ä½ç½®
 	static int cur;
-	//½áÊøÖ¸Õë,×îºóÒ»¸ö×Ö·ûºóÃæµÄÎ»ÖÃ
+	//ç»“æŸæŒ‡é’ˆ,æœ€åä¸€ä¸ªå­—ç¬¦åé¢çš„ä½ç½®
 	static int last;
 
 	public static void main(String[] args) throws IOException {
@@ -28,26 +28,26 @@ public class Main {
 			for (int i = 0; i < s.length(); i++) {
 				text[i + 1] = s.charAt(i);
 			}
-			//³õÊ¼»¯
+			//åˆå§‹åŒ–
 			cur = last = next[0] = 0;
 
 			for (int i = 1; i <= s.length(); i++) {
 				char c = text[i];
-				//¹â±ê¶¨Î»ÖÁÆğÊ¼Î»ÖÃ
+				//å…‰æ ‡å®šä½è‡³èµ·å§‹ä½ç½®
 				if (c == '[') {
 					cur = 0;
-				//¹â±ê¶¨Î»ÖÁÄ©Î²Î»ÖÃ
+				//å…‰æ ‡å®šä½è‡³æœ«å°¾ä½ç½®
 				} else if (c == ']') {
 					cur = last;
-				//¹â±êË³´ÎºóÒÆ
+				//å…‰æ ‡é¡ºæ¬¡åç§»
 				} else {
 					next[i] = next[cur];
 					next[cur] = i;
-					//¸üĞÂ"×îºóÒ»¸ö×Ö·û"±àºÅ
+					//æ›´æ–°"æœ€åä¸€ä¸ªå­—ç¬¦"ç¼–å·
 					if (cur == last) {
 						last = i;
 					}
-					//ÒÆ¶¯¹â±ê
+					//ç§»åŠ¨å…‰æ ‡
 					cur = i;
 				}
 			}
