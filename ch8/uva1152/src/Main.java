@@ -13,6 +13,7 @@ public class Main {
 		while (left < right) {
 			int m = left + (right - left) / 2;
 			if (nums[m] == v) {
+				// 找到，再得到左边界和右边界,返回找到的个数
 				int low = lowerBound(nums, left, right, v);
 				int upper = upperBound(nums, left, right, v);
 				return upper - low + 1;
@@ -26,7 +27,6 @@ public class Main {
 		return 0;
 	}
 
-	// 当v存在时返回它出现的第一个位置。如果不存在，返回这样一个下标i：在此处插入v后序列仍然有序。
 	private static int lowerBound(int[] nums, int left, int right, int v) {
 		while (left < right) {
 			int m = left + (right - left) / 2;
@@ -39,7 +39,6 @@ public class Main {
 		return left;
 	}
 
-	// 当v存在时返回它出现的最后一个位置如果不存在，返回这样一个下标i：在此处插入v后序列仍然有序。
 	private static int upperBound(int[] nums, int left, int right, int v) {
 		boolean flag = false;
 		while (left < right) {
@@ -85,12 +84,14 @@ public class Main {
 				d[i] = Integer.parseInt(strs[3]);
 			}
 
+			// 得到a+b
 			int index = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					left[index++] = a[i] + b[j];
 				}
 			}
+			// 得到-c-d
 			index = 0;
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
@@ -98,9 +99,11 @@ public class Main {
 				}
 			}
 
+			// 排序
 			Arrays.sort(left);
 			Arrays.sort(right);
 
+			// 在right中二分查找left中的元素
 			int sum = 0;
 			for (int i = 0; i < n * n; i++) {
 				sum += baseSearch(right, 0, n * n, left[i]);
