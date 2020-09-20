@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 /**
  * DAG 最长路径
  * 
+ * 不能直接用d(a,b)表示状态值,不唯一。
+ * 可以用(idx, k)这个二元组来“间接”表达状态，其中idx为顶面立方体的序号，k是高的序号
+ * 
  * d(i,j) = max{d(k,l)+nums[i][j]}
  * 
  * O(n^2)
