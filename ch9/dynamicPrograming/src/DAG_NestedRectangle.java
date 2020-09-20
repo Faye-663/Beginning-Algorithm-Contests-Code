@@ -78,12 +78,14 @@ public class DAG_NestedRectangle {
 
 			int ans = dp(0, n);
 			int index = 0;
-			for (int i = 0; i < n; i++) {
-				if (d[i] > ans) {
-					ans = d[i];
+			for(int i = 1;i<n;i++){
+				int temp = dp(i,n);
+				if(ans<temp){
+					ans = temp;
 					index = i;
 				}
 			}
+			
 			out.println(ans);
 			out.println();
 			out.flush();
