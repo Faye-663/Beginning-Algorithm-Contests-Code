@@ -39,11 +39,11 @@ public class bitVector {
 			return;
 		}
 		
-		//选第cur个元素
+		//不选第cur个元素
 		b[cur]=0;
 		f(n,b,cur+1);
 		
-		//不选第cur个元素
+		//选第cur个元素
 		b[cur]=1;
 		f(n,b,cur+1);
 	}

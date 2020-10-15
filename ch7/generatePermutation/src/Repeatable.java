@@ -55,7 +55,7 @@ public class Repeatable {
 			//确保P[i]和之前任一元素不相同
 			for (int i = 0; i < n && (i == 0 || p[i] != p[i - 1]); i++) {
 				//cp：p中值为p[i]的个数
-				//cp：a中值为p[i]的个数
+				//ca：a中值为p[i]的个数
 				int cp = 0;
 				int ca = 0;
 
